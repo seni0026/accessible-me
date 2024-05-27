@@ -15,6 +15,13 @@
 <body>
   <div class="container">
 
+    <!-- Skip links -->
+    <ul class="jump-to">
+      <li><a href="#nav">Go to navigation</a></li>
+      <li><a href="#main">Go to main section</a></li>
+      <li><a href="#contact-form">Go to contact form</a></li>
+    </ul>
+
     <!-- Add a header tag with an aria role set to banner -->
     <header role="banner">
 
@@ -22,7 +29,7 @@
         <h1 class="logo">Jam Box Studios</h1>
 
         <!-- Add a nav tag with an aria role set to navigation -->
-        <nav role="navigation">
+        <nav role="navigation" id="nav">
 
           <div class="main-nav">
             <ul>
@@ -33,36 +40,47 @@
             </ul>
           </div>
         </nav>
-        <img src="https://placekitten.com/1200/900" class="banner">
-      </div>
+
+        <!-- Use Schema to add microdata to the image -->
+        <div itemscope itemtype="https://schema.org/image">
+          <img itemprop="image" src="https://placekitten.com/1200/900" class="banner" alt="This image shows a black kitten sleeping comfortably in a coach">
+        </div>
+        </div>
     </header>
 
     <!-- Add a main tag wih aria role set to main -->
-    <main role="main">
+    <main role="main" id="main">
 
       <div class="main-content">
         <h1>Welcome to Jam Box</h1>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus laboriosam praesentium nostrum ipsa eveniet, officia deserunt cumque eius esse enim, ipsam accusantium autem nihil quaerat sequi perferendis optio quia veritatis.</p>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam perferendis expedita sed itaque odit ipsam omnis, eos voluptates magni fugit culpa voluptatibus, inventore eaque, eligendi voluptatum! Voluptate iusto error voluptatibus.</p>
+        
+        <!-- Use Schema to add microdata to the "owner" section -->
         <div class="owner">
           <h1>Meet the owner</h1>
-          <ul>
-            <li>Name: John Doe</li>
-            <li>Title: CEO</li>
-            <li>Email: johnjoe@jambox.ca</li>
+          <ul itemscope itemtype="https://schema.org/Person">
+            <li itemprop="name">Name: John Doe</li>
+            <li itemprop="jobtitle">Title: CEO</li>
+            <li itemprop="email">Email: johnjoe@jambox.ca</li>
             <li>Phone: 613-000-0000</li>
           </ul>
-          <h1>Address</h1>
-          <p>
-            Jambox Studios
-            123 Guitar Road,
-            Musicville, Danceistan
-            B3T 0L0
-          </p>
+
+          <div itemscope itemtype="https://schema.org/address">
+            <h1>Address</h1>
+            <p>
+              Jambox Studios
+              <span itemprop="streetAddress">123 Guitar Road,</span>
+              <span itemprop="addressCountry">Musicville, Danceistan</span>
+              <span itemprop="postalCode">B3T 0L0</span>
+            </p>
+          </div>
         </div>
+
+        <!-- Add input labels -->
         <div class="contact-section">
           <h1>Contact Us</h1>
-          <form action="thanks.html">
+          <form action="thanks.html" id="contact-form">
             <label for="name">Full Name</label>
             <input type="text" placeholder="Full Name" id="name">
             <label for="email">Email</label>
@@ -70,8 +88,9 @@
             <label for="subject">Subject</label>
             <input type="text" placeholder="Subject" id="subject">
             <b>Your Message</b>
-            <textarea></textarea>
-            <button type="submit" aria-disabled="true" aria-label="This is the button to submit the form">Send</button>
+            <label for="message"></label>
+            <textarea id="message"></textarea>
+            <button type="submit" aria-label="This is the button to submit the form">Send</button>
           </form>
         </div>
       </div>
