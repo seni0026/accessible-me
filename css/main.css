@@ -71,6 +71,12 @@ img {
   color: #ff0000;
 }
 
+/* Change background and text color when links are in focus */
+.main-nav ul li a:focus {
+  color: #ff0000;
+  background-color: #fff;
+}
+
 /* Use box-sizing to control the width of the form */
 form input,
 form textarea {
