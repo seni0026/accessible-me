@@ -25,7 +25,7 @@
     <!-- Add a header tag with an aria role set to banner -->
     <header role="banner">
 
-      <div class="site-header"> 
+      <div class="site-header" aria-label="This is the navigation section of the webpage"> 
         <h1 class="logo">Jam Box Studios</h1>
 
         <!-- Add a nav tag with an aria role set to navigation -->
@@ -33,7 +33,7 @@
 
           <div class="main-nav">
             <ul>
-              <li><a href="#" aria-current="page">Home</a></li>
+              <li><a href="index.html" aria-current="page">Home</a></li>
               <li><a href="#">Products</a></li>
               <li><a href="#">Reservation</a></li>
               <li><a href="#">Studio</a></li>
@@ -52,13 +52,13 @@
     <main role="main" id="main">
 
       <div class="main-content">
-        <h1>Welcome to Jam Box</h1>
+        <h2 aria-label="This is the welcome section of Jam Box webpage">Welcome to Jam Box</h2>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus laboriosam praesentium nostrum ipsa eveniet, officia deserunt cumque eius esse enim, ipsam accusantium autem nihil quaerat sequi perferendis optio quia veritatis.</p>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam perferendis expedita sed itaque odit ipsam omnis, eos voluptates magni fugit culpa voluptatibus, inventore eaque, eligendi voluptatum! Voluptate iusto error voluptatibus.</p>
         
         <!-- Use Schema to add microdata to the "owner" section -->
-        <div class="owner">
-          <h1>Meet the owner</h1>
+        <div aria-label="This section contains information about John Doe, the owner" class="owner">
+          <h2>Meet the owner</h2>
           <ul itemscope itemtype="https://schema.org/Person">
             <li itemprop="name">Name: John Doe</li>
             <li itemprop="jobtitle">Title: CEO</li>
@@ -67,7 +67,7 @@
           </ul>
 
           <div itemscope itemtype="https://schema.org/address">
-            <h1>Address</h1>
+            <h2>Address</h2>
             <p>
               Jambox Studios
               <span itemprop="streetAddress">123 Guitar Road,</span>
@@ -78,8 +78,8 @@
         </div>
 
         <!-- Add input labels -->
-        <div class="contact-section">
-          <h1>Contact Us</h1>
+        <div role="form" class="contact-section" aria-label="This is the contact us form">
+          <h2>Contact Us</h2>
           <form action="thanks.html" id="contact-form">
             <label for="name">Full Name</label>
             <input type="text" placeholder="Full Name" id="name">
@@ -87,8 +87,7 @@
             <input type="text" placeholder="Email" id="email">
             <label for="subject">Subject</label>
             <input type="text" placeholder="Subject" id="subject">
-            <b>Your Message</b>
-            <label for="message"></label>
+            <label for="message">Your Message</label>
             <textarea id="message"></textarea>
             <button type="submit" aria-label="This is the button to submit the form">Send</button>
           </form>
@@ -100,7 +99,10 @@
     <footer role="contentinfo">
 
       <div class="site-footer">
-        &copy; 2021 Jam Box Studios
+        <p>
+          <span>&copy;</span> 
+          2021 Jam Box Studios
+        </p>
       </div>
     </footer>
   </div>
